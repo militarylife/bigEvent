@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/iconfont.css">
     <link rel="stylesheet" href="css/main.css">
     <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -63,7 +64,7 @@
                             <h4 class="modal-title" id="myModalLabel">提示</h4>
                         </div>
                         <div class="modal-body">
-                            
+                           你确定要退出吗？？？ 
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -126,8 +127,23 @@
 
     <SCript>
         $(function(){
+
             $(".icon-tuichu").parent().click(function(){
-                alert("确定要退出吗");
+                // alert("确定要退出吗");
+                $('#myModal').modal()
+            });
+
+            $(".btn-primary").click(function(){
+                $.ajax({
+                    url:"https://autumnfish.cn/big/admin/logout",
+                    type:"post",
+                    data:{
+                    },
+                    success:function(backData){
+                        console.log(backData);
+                        window.location.href="login.html"
+                    }   
+                })
             });
         });
     </SCript>
